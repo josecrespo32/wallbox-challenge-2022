@@ -1,0 +1,37 @@
+{
+  "name": "wallbox-challenge-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "swagger-autogen": "node swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josecrespo32/wallbox-challenge-2022.git"
+  },
+  "author": "jose.crespo@wallbox.com",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/josecrespo32/wallbox-challenge-2022/issues"
+  },
+  "homepage": "https://github.com/josecrespo32/wallbox-challenge-2022#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^6.14.0",
+    "faker": "^6.6.6",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.3.0",
+    "ulid": "^2.3.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.18.8"
+  }
+}
