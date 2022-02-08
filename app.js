@@ -11,8 +11,9 @@ const swaggerDocument = require('./swagger-output.json');
 dotenv.config()
 
 // access config var
-process.env.TOKEN_SECRET
-
+if (!process.env.TOKEN_SECRET) {
+  throw new Error('Must define TOKEN_SECRET environment variable first! It is setup at .env file?')
+}
 
 //Middlewares
 app.use(cors())

@@ -2,6 +2,13 @@
 
 A simple demo API Rest for managing users and chargers.
 
+## Setup environment
+The only required environment setup is to set the ```TOKEN_SECRET``` environment variable. For simplicity reasons you may create a .env file that contains the variable definition:
+
+```bash
+TOKEN_SECRET=myAppSuperSecret!
+```
+
 ## Run app with npm
 You need the following software:
  - node (preferred LTS version)
