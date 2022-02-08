@@ -57,7 +57,7 @@ The 'database' is convenient initialized at every launch with a user of each rol
  * user@wallbox.com:user1234
  * admin@wallbox.com:admin1234
 
-There also exist two convenient 'database' methods for clearing 'Users' and 'Chargers' collections.
+There also exist two convenient 'database' methods for clearing 'Users' and 'Chargers' collections (accessible by js code in this same project).
 
 ## Endpoints documentation
 
@@ -72,6 +72,30 @@ Once the application is running, Swagger documentation is exposed at http://loca
 ## Authorization
 
 All endpoints except GET / and POST /signin are authenticated endpoints by Bearer authorization header. For generating the token just perform POST /signin with a valid and existent user.
+
+Try it out!
+```bash
+curl -X POST http://localhost:3000/signin -H 'Content-Type: application/json' -d '{"email":"admin@wallbox.com","password":"admin1234"}'
+# Output: {"uid":"{useruid}","email":"admin@wallbox.com","jwt":"{adminaccesstoken}"}
+
+curl -X GET http://localhost:3000/users -H 'Authorization: Bearer {adminaccesstoken}'
+# Output:
+# {
+#  "users": [
+#    {
+#      "uid": "{adminuid}",
+#      "email": "admin@wallbox.com",
+#      "role":"admin"
+#    }, 
+#    {
+#      "uid": "{useruid}",
+#      "email": "user@wallbox.com", 
+#      "role": "user"
+#    }
+#  ]
+# }
+```
+
 There exists 2 different roles: 
 * admin: They administer the app status and CRUD resources, also links users to chargers
 * user: Mostly for getting information and edit its own profile/resources
@@ -92,8 +116,12 @@ User over charger:
 - User over owned charger (linked to him) is ok
 
 ## Link/unlink chargers to users
+Relation between chargers and users is many to many: Any charger may be linked to many users and any user may be linked to many chargers.
+Admins are intended to define this relations between users and chargers. When an user is linked to a charger it grants permissions to the user for getting charger's information.
+
 Endpoint for link users and chargers:
 ```POST /chargers/:uidcharger/users/:uiduser```
+
 Endpoint for unlink users and chargers:
 ```DELETE /chargers/:uidcharger/users/:uiduser```
 
