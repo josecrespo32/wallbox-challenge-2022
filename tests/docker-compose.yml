@@ -1,0 +1,19 @@
+version: '2.4'
+
+services:
+
+  app:
+    hostname: wallbox-challenge
+    image: wallbox-challenge
+    environment:
+      TOKEN_SECRET: myAppSuperSecret!
+    ports:
+      - 3000:3000
+    volumes:
+      - ./logs:/root/.npm/_logs/
+
+  tests:
+    image: wallbox-challenge-tests
+    volumes:
+      - ./logs:/tests/logs
+      - ./testplans:/tests/testplans

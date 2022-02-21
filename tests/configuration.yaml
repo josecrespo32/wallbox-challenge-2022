@@ -1,0 +1,29 @@
+app:
+  protocol: http
+  host: wallbox-challenge
+  port: 3000
+
+users:
+  # users created on app startup
+  admin:
+    email: admin@wallbox.com
+    password: admin1234
+    role: admin
+  user:
+    email: user@wallbox.com
+    password: user1234
+    role: user
+
+  user_new:
+    email: user_new@wallbox.com
+    password: user1234
+    role: user
+  admin_new:
+    email: admin_new@wallbox.com
+    password: admin1234
+    role: admin
+
+chargers:
+  charger_new:
+    serialNumber: 11111
+    model: Pulsar Plus
