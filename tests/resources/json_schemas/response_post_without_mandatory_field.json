@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "msg",
+          "param",
+          "location"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "param": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

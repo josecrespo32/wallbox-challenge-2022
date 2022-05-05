@@ -1,0 +1,4 @@
+behave == 1.2.6
+jsonschema == 4.4.0
+pyyaml == 6.0
+requests == 2.27.1

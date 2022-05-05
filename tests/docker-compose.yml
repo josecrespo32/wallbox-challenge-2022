@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  wallbox_challenge:
+    profiles: ["all", "app"]
+    build:
+      context: ../
+    ports:
+      - 3000:3000
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s http://localhost:3000 | grep -q 'Wallbox Challenge API REST is up and running!'",
+        ]
+      interval: 1s
+      timeout: 20s
+      retries: 20
+
+  wallbox_tester:
+    profiles: ["all"]
+    build:
+      context: ./
+    volumes:
+      - .:/tests
+    depends_on:
+      wallbox_challenge:
+        condition: service_healthy
+    links:
+      - wallbox_challenge
+    entrypoint: behave -D csv_report -D host=wallbox_challenge features/e2e/ features/integration/

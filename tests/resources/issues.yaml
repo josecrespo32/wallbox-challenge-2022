@@ -1,0 +1,9 @@
+bugs:
+  BUG_001: User passwords is shown when getting the charger info if it is assigned to some user
+  BUG_002: Admins can query other admins info by querying to /users endpoint
+  BUG_003: It is being allowed the assignation of a charger to an admin from a user role
+
+comments:
+  COMMENT_001: emailConfirmation and passwordConfirmation are mandatory fields but they are not documented in the swagger
+  COMMENT_002: the same "Invalid value" is being repeated in the response when some mandatory field is not set in the POST /users, and in other requests
+  COMMENT_003: 404 not documented in the swagger as possible status code in GET /users/{right_format_uid}

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "value",
+          "msg",
+          "param",
+          "location"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string",
+            "enum": ["Invalid value"]
+          },
+          "param": {
+            "type": "string",
+            "enum": ["uidcharger"]
+          },
+          "location": {
+            "type": "string",
+            "enum": ["params"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

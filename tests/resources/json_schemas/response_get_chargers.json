@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "required": [
+    "chargers"
+  ],
+  "properties": {
+    "chargers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "uid",
+          "serialNumber",
+          "model"
+        ],
+        "properties": {
+          "uid": {
+            "type": "string",
+            "pattern": "^[0-9, A-Z]{26}$"
+          },
+          "serialNumber": {
+            "type": "integer"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "Commander",
+              "Pulsar Plus",
+              "Quasar"
+            ]
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "email",
+                "role",
+                "uid"
+              ],
+              "properties": {
+                "uid": {
+                  "type": "string",
+                  "pattern": "^[0-9, A-Z]{26}$"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "user",
+                    "admin"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

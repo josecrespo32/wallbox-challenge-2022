@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "required": [
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "contains": {
+        "type": "object",
+        "required": [
+          "msg",
+          "param",
+          "location",
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string",
+            "enum": ["Invalid value"]
+          },
+          "param": {
+            "type": "string",
+            "enum": ["email"]
+          },
+          "location": {
+            "type": "string",
+            "enum": ["body"]
+          }
+        },
+        "additionalProperties": false
+      },
+      "contains": {
+        "type": "object",
+        "required": [
+          "msg",
+          "param",
+          "location",
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string",
+            "enum": ["Invalid value"]
+          },
+          "param": {
+            "type": "string",
+            "enum": ["emailConfirmation"]
+          },
+          "location": {
+            "type": "string",
+            "enum": ["body"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

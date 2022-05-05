@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "message",
+    "stack"
+  ],
+  "properties": {
+    "status": {
+      "type": "integer",
+      "enum": [404]
+    },
+    "message": {
+      "type": "string",
+      "enum": ["Charger not found"]
+    },
+    "stack": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

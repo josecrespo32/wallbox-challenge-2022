@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "message",
+    "charger"
+  ],
+  "properties": {
+    "message": {
+      "type": "string",
+      "enum": ["Charger updated"]
+    },
+    "charger": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "pattern": "^[0-9, A-Z]{26}$"
+        },
+        "serialNumber": {
+          "type": "integer"
+        },
+        "model": {
+          "type": "string",
+          "enum": [
+            "Commander",
+            "Pulsar Plus",
+            "Quasar"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

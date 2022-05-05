@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "message",
+    "user"
+  ],
+  "properties": {
+    "message": {
+      "type": "string",
+      "enum": ["User registered"]
+    },
+    "user": {
+      "type": "object",
+      "required": [
+        "uid",
+        "email",
+        "role"
+      ],
+      "properties": {
+        "uid": {
+          "type": "string",
+          "pattern": "^[0-9, A-Z]{26}$"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "admin"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

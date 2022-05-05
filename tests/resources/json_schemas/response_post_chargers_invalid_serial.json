@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required": [
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "msg",
+          "param",
+          "location",
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string",
+            "enum": ["Invalid value"]
+          },
+          "param": {
+            "type": "string",
+            "enum": ["serialNumber"]
+          },
+          "location": {
+            "type": "string",
+            "enum": ["body"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

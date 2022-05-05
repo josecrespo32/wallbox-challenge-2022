@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": [
+    "uid",
+    "email",
+    "jwt"
+  ],
+  "properties": {
+    "uid": {
+      "type": "string",
+      "pattern": "^[0-9, A-Z]{26}$"
+    },
+    "email": {
+      "type": "string"
+    },
+    "jwt": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "message",
+    "stack"
+  ],
+  "properties": {
+    "status": {
+      "type": "integer",
+      "enum": [401]
+    },
+    "message": {
+      "type": "string",
+      "enum": ["Wrong email or password"]
+    },
+    "stack": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

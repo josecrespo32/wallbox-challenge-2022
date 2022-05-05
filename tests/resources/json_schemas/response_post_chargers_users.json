@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "required": [
+    "message",
+    "charger"
+  ],
+  "properties": {
+    "message": {
+      "type": "string",
+      "enum": ["Allowed user to access charger"]
+    },
+    "charger": {
+      "type": "object",
+      "required": [
+        "uid",
+        "serialNumber",
+        "model",
+        "users"
+      ],
+      "properties": {
+        "uid": {
+          "type": "string",
+          "pattern": "^[0-9, A-Z]{26}$"
+        },
+        "serialNumber": {
+          "type": "integer"
+        },
+        "model": {
+          "type": "string",
+          "enum": [
+            "Commander",
+            "Pulsar Plus",
+            "Quasar"
+          ]
+        },
+        "users": {
+          "type": "array",
+          "minItem": 1,
+          "maxItem": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "uid",
+              "email",
+              "password",
+              "role"
+            ],
+            "properties": {
+              "uid": {
+                "type": "string",
+                "pattern": "^[0-9, A-Z]{26}$"
+              },
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "admin"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
