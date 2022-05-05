@@ -105,3 +105,6 @@ dist
 
 # QA reports
 tests/reports/*.csv
+
+# Python cache
+__pycache__
