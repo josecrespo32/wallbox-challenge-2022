@@ -64,7 +64,7 @@ reports
 
 ## Run tests in a docker-compose
 
-Run all the tests in a docker-compose having inside the wallbox_challenge and the wallbox_tester services and it will generate also the csv report
+Run all the tests in a docker-compose having inside the wallbox_challenge and the wallbox_tester services and it will generate also the csv report. The wallbox_tester service will stop after executing the tests
 
 You need docker and docker-compose installed in your system.
 
