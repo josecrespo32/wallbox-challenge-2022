@@ -23,13 +23,13 @@ You need the following software:
 
 Install python packages:
 ```bash
-pip install -r requiremts.txt
+pip install -r requirements.txt
 ```
 Run all the designed scenarios test against the application running in localhost:
 ```bash
 behave features/integration/ features/e2e/
 ```
-or run them against another host
+or run them against other host or ip
 ```bash
 behave -D host=<host_or_ip> features/integration/ features/e2e/
 ```
@@ -37,12 +37,12 @@ behave -D host=<host_or_ip> features/integration/ features/e2e/
 ## Generate a simple report
 A simple csv report was developed.
 
-Run with behave:
+Generate it running behave with the csv_report option:
 ```bash
 behave -D csv_report features/integration/ features/e2e/
 ```
 
-I will be generated under reports with each behave execution:
+The report will be generated under reports every each behave execution:
 ```bash
 reports
 ├── execution_report_20220504210605.csv
@@ -89,6 +89,11 @@ docker-compose --profile all down --volumes --remove-orphans
 ## Too much complex ??
 
 Build and run up the docker-compose using the Makefile and get the csv report:
+```bash
+make qa-wallbox-up
+```
+
+These are the available commands
 ```bash
 $ make help
 Usage: make <command>
