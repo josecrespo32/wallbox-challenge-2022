@@ -93,7 +93,8 @@ What to do next:
 
 1. Automate the tests that only have the header.
 2. Group more steps to improve tests readability.
-3. Run app and tests with docker in order to simplify setup and run process.
-4. Include a jenkins file in repository in order to run tests on CI and track the changes in the pipeline.
-5. Create performance tests and include them in CI. This will ensure there will be no performance problems when developing new features.
-6. Include security tests in CI using for example Kiuwan.
+3. Move test data to config files and encrypt passwords.
+4. Run app and tests with docker in order to simplify setup and run process.
+5. Include a jenkins file in repository in order to run tests on CI and track the changes in the pipeline.
+6. Create performance tests and include them in CI. This will ensure there will be no performance problems when developing new features.
+7. Include security tests in CI using for example Kiuwan.
