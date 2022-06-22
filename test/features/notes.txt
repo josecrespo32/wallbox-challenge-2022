@@ -1,0 +1,74 @@
+user@wallbox.com:user1234
+admin@wallbox.com:admin1234
+http://localhost:3000/api-docs
+
+
+Users: Models actors of the system. Two different roles: admins and users.
+    Admins models system operators for registering users and chargers.
+    Users models the charger clients that need to use charger services.
+Chargers: Models a charger entity.
+
+  AUTH
+    User -> User
+        Admin over himself is ok but Admin over other admin is not possible
+        Admin over users is ok
+        User over himself is ok but User over other user is not possible
+        User over admins is not possible
+    User -> Charger
+        Admin over any charger is ok
+        User over any charger (unliked from him) is not possible
+        User over owned charger (linked to him) is ok
+
+  Linking Chargers
+    Charger linked to many users
+    User can link to many chargers
+        Endpoint for link users and chargers: POST /chargers/:uidcharger/users/:uiduser
+        Endpoint for unlink users and chargers: DELETE /chargers/:uidcharger/users/:uiduser
+
+TESTPLAN Design:
+
+ With the lack of priority from Product team I am going to focus on the behaviours that from the QA perspective are the most critics and needed for a common use of the API like creation/update of users and his/him data, valid autentications and assosiations/desasosiations to chargers.
+
+    Token management
+        - Valid Token request with role USER
+        - Invalid Token request with role USER with Wrong email
+        - Invalid Token request with role USER with Wrong password
+        - Invalid Token request with role USER with Wrong email and Wrong Password
+
+        - Valid Token request with role ADMIN
+        - Invalid Token request with role ADMIN with Wrong email
+        - Invalid Token request with role ADMIN with Wrong password
+        - Invalid Token request with role ADMIN with Wrong email and Wrong Password
+
+        - Invalid Crossed Token request with role USER with Valid email and ADMIN Password
+        - Invalid Crossed Token request with role ADMIN with Valid email and USER Password
+        - Authorized ADMIN Token can Request USER info
+        - Unauthorized ADMIN Token can NOT Request USER info
+        - Authorized USER Token can Request own USER info
+        - Authorized USER Token can NOT Request ADMIN info
+        - Valid Token request with role ADMIN
+        - Invalid Token request with role ADMIN with Wrong email
+        - Invalid Token request with role ADMIN with Wrong password
+        - Invalid Token request with role ADMIN with Wrong email and Wrong Password
+
+    Users profiles
+        - ADMIN can retrieve USERS
+        - ADMIN can create new USER2
+        - ADMIN can create new ADMIN2
+        - ADMIN can update USER2
+        - ADMIN can update USER1
+        - ADMIN can update ADMIN
+        - ADMIN can NOT update ADMIN2
+        - ADMIN2 can update ADMIN2
+        - ADMIN can update USER2
+        - ADMIN can update USER1
+        - ADMIN can delete USER2
+        - USER can NOT retrieve USERS
+        - USER can NOT create new USER3
+        - USER can NOT update USER2
+        - USER can update USER2
+        - USER can NOT create new USER3
+
+
+
+
