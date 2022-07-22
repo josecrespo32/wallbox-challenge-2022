@@ -69,6 +69,14 @@ Once the application is running, Swagger documentation is exposed at http://loca
   * Users models the charger clients that need to use charger services.
 * Chargers: Models a charger entity.
 
+## Some restrictions
+
+* Accepted charger models: 'Pulsar Plus', 'Commander', 'Quasar'
+* Accepted user roles: 'user', 'admin'
+* Users and chargers uids always are alphanumeric uppercase 26 characters length
+* Charger serial numbers are natural numbers (non-negative integers)
+* Passwords are alphanumeric
+
 ## Authorization
 
 All endpoints except GET / and POST /signin are authenticated endpoints by Bearer authorization header. For generating the token just perform POST /signin with a valid and existent user.
